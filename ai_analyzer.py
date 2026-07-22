@@ -12,7 +12,6 @@ genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
 
 model = genai.GenerativeModel("gemini-1.5-flash")
 
-
 def analyze_report(report_text):
     prompt = f"""
 You are an expert medical AI assistant.
