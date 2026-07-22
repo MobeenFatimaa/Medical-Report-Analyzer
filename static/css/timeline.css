@@ -1,0 +1,293 @@
+/* ============================================================================
+   TIMELINE / HOW IT WORKS SECTION
+============================================================================ */
+
+.timeline {
+    padding: 90px 0;
+    position: relative;
+    z-index: 1;
+}
+
+/* Enhanced Background Image System */
+.timeline::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../images/how-it-works-bg.jpg'); 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.22; 
+    mix-blend-mode: luminosity; 
+    z-index: -2;
+    pointer-events: none;
+}
+
+/* Gradient Overlay Mask: Keeps text high-contrast while keeping background sharp */
+.timeline::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, rgba(10, 10, 12, 0.4) 0%, rgba(10, 10, 12, 0.85) 100%);
+    z-index: -1;
+    pointer-events: none;
+}
+
+.how-it-works {
+    padding-bottom: 180px;
+}
+
+/* Section Typography Headers */
+.section-title {
+    text-align: center;
+    margin-bottom: 80px;
+}
+
+.section-title span {
+    display: inline-block;
+    padding: 10px 22px;
+    border-radius: 50px;
+    background: rgba(218, 160, 109, .08);
+    border: 1px solid rgba(218, 160, 109, .18);
+    color: #DAA06D;
+    font-size: 13px;
+    letter-spacing: 2px;
+    font-weight: 700;
+    margin-bottom: 22px;
+}
+
+.section-title h2 {
+    font-size: 70px;
+    line-height: 1.1;
+    margin-bottom: 22px;
+}
+
+.section-title p {
+    width: 750px;
+    max-width: 100%;
+    margin: 30px auto 0;
+    color: #ccb9b1;
+    opacity: .75;
+    font-size: 23px;
+    line-height: 1.8;
+}
+
+/* Grid Layout & Connectors */
+.timeline-wrapper {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(260px, 1fr));
+    gap: 40px;
+}
+
+.timeline-line {
+    position: absolute;
+    top: 55px;
+    left: 12%;
+    width: 76%;
+    height: 6px;
+    border-radius: 50px;
+    background: linear-gradient(90deg, #991B1B, #DAA06D, #991B1B);
+    background-size: 300%;
+    box-shadow: 0 0 18px rgba(218, 160, 109, .35);
+    animation: flow 6s linear infinite;
+}
+
+@keyframes flow {
+    0% { background-position: 0%; }
+    100% { background-position: 300%; }
+}
+
+.timeline-line::after {
+    content: "";
+    position: absolute;
+    top: -5px;
+    left: 0;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: #DAA06D;
+    box-shadow: 0 0 20px #DAA06D;
+    animation: dotMove 6s linear infinite;
+}
+
+@keyframes dotMove {
+    0% { left: 0; }
+    100% { left: 100%; transform: translateX(-16px); }
+}
+
+/* Timeline Cards (Glassmorphism Removed) */
+.timeline-card {
+    position: relative;
+    min-height: 280px;
+    padding: 26px;
+    text-align: center;
+    background: #141416; /* Solid dark color palette replacement */
+    border: 1px solid rgba(218, 160, 109, .25); /* Slightly cleaner visible borders */
+    border-radius: 28px;
+    transition: .4s;
+    z-index: 2;
+    overflow: visible;
+}
+
+.timeline-card:hover {
+    transform: translateY(-12px);
+    border-color: #DAA06D;
+    box-shadow: 0 20px 40px rgba(218, 160, 109, .18), 0 0 35px rgba(218, 160, 109, .12);
+}
+
+.timeline-card:nth-child(2),
+.timeline-card:nth-child(4) {
+    margin-top: 60px;
+}
+
+/* Card Visual Internal Elements */
+.timeline-icon {
+    width: 72px;
+    height: 72px;
+    margin: 0 auto 20px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #991B1B, #DAA06D);
+    font-size: 28px;
+    color: white;
+    box-shadow: 0 15px 35px rgba(218, 160, 109, .25);
+    transition: .4s;
+}
+
+.timeline-card:hover .timeline-icon {
+    transform: rotate(8deg) scale(1.08);
+}
+
+.timeline-number {
+    position: absolute;
+    top: -22px;
+    right: 22px;
+    width: 58px;
+    height: 58px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #DAA06D;
+    color: #2d140d;
+    font-weight: 800;
+    font-size: 24px;
+    z-index: 100;
+}
+
+.timeline-card h3 {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 18px;
+}
+
+.timeline-card p {
+    line-height: 1.8;
+    opacity: .75;
+    font-size: 15px;
+}
+
+/* ============================================================================
+   ALTERNATIVE EXTRA STEPS CARDS
+============================================================================ */
+
+.steps {
+    margin-top: 100px;
+    display: flex;
+    justify-content: center;
+    gap: 45px;
+    position: relative;
+}
+
+.steps::before {
+    content: "";
+    position: absolute;
+    left: 13%;
+    right: 13%;
+    top: 215px;
+    height: 6px;
+    border-radius: 20px;
+    background: linear-gradient(90deg, #b7362c, #e7b078, #b7362c);
+    z-index: -1;
+}
+
+.step-card {
+    width: 18%;
+    min-width: 260px;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 50px 35px;
+}
+
+.step-card h3 {
+    height: 110px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.step-card p {
+    max-width: 240px;
+    margin: auto;
+    line-height: 1.8;
+    color: #cdbdb5;
+    font-size: 18px;
+}
+
+.icon-box {
+    width: 120px;
+    height: 120px;
+    margin-bottom: 45px;
+}
+
+.step-number {
+    width: 62px;
+    height: 62px;
+    font-size: 26px;
+    top: -20px;
+    right: -20px;
+}
+
+/* ============================================================================
+   RESPONSIVE MEDIA LAYER
+============================================================================ */
+
+@media(max-width: 1100px) {
+    .timeline-wrapper {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .timeline-line {
+        display: none;
+    }
+    .timeline-card:nth-child(2),
+    .timeline-card:nth-child(4) {
+        margin-top: 0;
+    }
+}
+
+@media(max-width: 700px) {
+    .timeline-wrapper {
+        grid-template-columns: 1fr;
+    }
+    .section-title h2 {
+        font-size: 42px;
+    }
+    .section-title p {
+        font-size: 18px;
+    }
+}

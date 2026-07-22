@@ -1,0 +1,1955 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>AI Medical Report Analyzer</title>
+
+    <!-- Google Fonts -->
+
+   <!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Sora:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+    
+
+    <!-- Font Awesome -->
+
+    <link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <!-- CSS -->
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/navbar.css') }}">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/hero.css') }}">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/upload.css') }}">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/cards.css') }}">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/animation.css') }}">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/responsive.css') }}">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/timeline.css') }}">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/features.css') }}">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/why.css') }}">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/sample.css') }}">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/testimonials.css') }}">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/stats.css') }}">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/reports.css') }}">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/security.css') }}">
+</head>
+
+<body>
+
+<div class="background"></div>
+<div class="grid"></div>
+<div class="noise"></div>
+
+<nav class="navbar">
+
+<div class="logo">
+
+<div class="logo-icon">
+
+<i class="fas fa-heartbeat"></i>
+
+</div>
+
+<div class="logo-text">
+
+<h2>MediAI</h2>
+
+<span>Medical Intelligence</span>
+
+</div>
+
+</div>
+
+<ul class="nav-links">
+
+<li><a href="#home">Home</a></li>
+
+<li><a href="#features">Features</a></li>
+
+<li><a href="#how it works">How It Works</a></li>
+
+<li><a href="#technology">Technology</a></li>
+
+<li><a href="#faq">FAQ</a></li>
+<li><a href="#contact">Contact</a></li>
+
+</ul>
+
+<div class="nav-right">
+
+<a href="https://github.com/MobeenFatimaa/Medical-Report-Analyzer" class="github">
+
+<i class="fab fa-github"></i>
+
+</a>
+
+<a href="#upload" class="cta-btn">
+
+Get Started
+
+</a>
+
+<div class="menu">
+
+<i class="fas fa-bars"></i>
+
+</div>
+
+</div>
+
+</nav>
+
+<!--================ HERO SECTION =================-->
+<section class="hero" id="home">
+    <!-- Video Background Layer -->
+    <div class="video-bg-container">
+        <video autoplay loop muted playsinline class="video-bg-element">
+    <!-- Points directly from root into static, then images -->
+    <source src="static/images/medical-bg.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+</video>
+        <div class="video-overlay"></div>
+    </div>
+
+    <div class="container hero-container">
+        <!-- Left Column: Content Layer -->
+        <div class="hero-left">
+            <div class="hero-badge">
+                <i class="fas fa-sparkles"></i>
+                <span>Powered by Artificial Intelligence</span>
+            </div>
+            <h1>
+                Analyze Medical Reports
+                <span>Smarter</span>
+                with AI
+            </h1>
+            <p>
+                Upload your laboratory reports and instantly receive AI-powered explanations, abnormality detection, health summaries, and personalized medical insights.
+            </p>
+            <div class="hero-buttons">
+                <a href="#upload" class="primary-btn">Upload Report</a>
+                <a href="#sample" class="secondary-btn">Watch Demo</a>
+            </div>
+            <div class="hero-users">
+                <div class="avatars">
+                    <img src="https://i.pravatar.cc/40?img=1" alt="User Avatar">
+                    <img src="https://i.pravatar.cc/40?img=2" alt="User Avatar">
+                    <img src="https://i.pravatar.cc/40?img=3" alt="User Avatar">
+                </div>
+                <p>Trusted by <span>1000+</span> users</p>
+            </div>
+        </div>
+
+        <!-- Right Column: Interactive Dashboard Preview Layer -->
+        <div class="hero-right">
+            <div class="medical-dashboard">
+                <div class="shine"></div>
+                <div class="dashboard-top">
+                    <div class="dashboard-title">
+                        <i class="fas fa-heartbeat"></i>
+                        <div>
+                            <h3>AI Medical Analysis</h3>
+                            <span>Live Report Preview</span>
+                        </div>
+                    </div>
+                    <div class="live-badge">● LIVE</div>
+                </div>
+                
+                <div class="health-score">
+                    <div class="circle">
+                        <h2>92</h2>
+                        <span>%</span>
+                    </div>
+                    <div>
+                        <h4>Overall Health Score</h4>
+                        <p>Excellent condition</p>
+                    </div>
+                </div>
+                
+                <div class="scan-line"></div>
+                
+                <div class="report-list">
+                    <div class="report-item">
+                        <div>
+                            <i class="fas fa-tint"></i>
+                            Red Blood Cells
+                        </div>
+                        <span class="status normal">Normal</span>
+                    </div>
+                    <div class="report-item">
+                        <div>
+                            <i class="fas fa-dna"></i>
+                            White Blood Cells
+                        </div>
+                        <span class="status high">High</span>
+                    </div>
+                    <div class="report-item">
+                        <div>
+                            <i class="fas fa-sun"></i>
+                            Vitamin D
+                        </div>
+                        <span class="status low">Low</span>
+                    </div>
+                    <div class="report-item">
+                        <div>
+                            <i class="fas fa-heart"></i>
+                            Blood Pressure
+                        </div>
+                        <span class="status normal">Normal</span>
+                    </div>
+                </div>
+                
+                <div class="summary-box">
+                    <h4>AI Summary</h4>
+                    <p>
+                        Vitamin D deficiency detected. Remaining health parameters are within the normal range.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--================ TRUSTED =================-->
+
+<section class="trusted">
+
+<div class="container">
+
+<p class="trusted-title">
+
+Trusted by developers using modern AI technologies
+
+</p>
+
+<div class="trusted-grid">
+
+<div class="tech-card">
+    <div class="tech-icon python">
+        <i class="fab fa-python"></i>
+    </div>
+    <h3>Python</h3>
+</div>
+
+<div class="tech-card">
+    <div class="tech-icon gemini">
+        <i class="fas fa-brain"></i>
+    </div>
+    <h3>Gemini AI</h3>
+</div>
+
+<div class="tech-card">
+    <div class="tech-icon pdf">
+        <i class="fas fa-file-pdf"></i>
+    </div>
+    <h3>PDF Reports</h3>
+</div>
+
+<div class="tech-card">
+    <div class="tech-icon ocr">
+        <i class="fas fa-file-lines"></i>
+    </div>
+    <h3>OCR Engine</h3>
+</div>
+
+<div class="tech-card">
+    <div class="tech-icon github">
+        <i class="fab fa-github"></i>
+    </div>
+    <h3>GitHub</h3>
+</div>
+
+<div class="tech-card">
+    <div class="tech-icon flask">
+        <i class="fas fa-flask"></i>
+    </div>
+    <h3>Flask</h3>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!--================ HOW IT WORKS =================-->
+<section class="timeline" id="how it works">
+
+<div class="container">
+
+<div class="section-title">
+
+    <span>HOW IT WORKS</span>
+
+    <h2>
+        Analyze Medical Reports in
+        <span>4 Intelligent Steps</span>
+    </h2>
+
+    <p>
+        Upload your report and let AI extract, interpret,
+        and explain every important health parameter.
+    </p>
+
+</div>
+
+<div class="timeline-wrapper">
+
+    <div class="timeline-line"></div>
+
+    <div class="timeline-card">
+
+        <div class="timeline-number">01</div>
+
+        <div class="timeline-icon">
+            <i class="fas fa-file-medical"></i>
+        </div>
+
+        <h3>Upload Report</h3>
+
+        <p>
+            Upload your blood test, CBC, MRI, X-ray, or laboratory report in PDF or image format.
+        </p>
+
+    </div>
+
+    <div class="timeline-card">
+
+        <div class="timeline-number">02</div>
+
+        <div class="timeline-icon">
+            <i class="fas fa-search"></i>
+        </div>
+
+        <h3>OCR Extraction</h3>
+
+        <p>
+            AI extracts all medical values and converts them into structured data automatically.
+        </p>
+
+    </div>
+
+    <div class="timeline-card">
+
+        <div class="timeline-number">03</div>
+
+        <div class="timeline-icon">
+            <i class="fas fa-brain"></i>
+        </div>
+
+        <h3>AI Analysis</h3>
+
+        <p>
+            Gemini AI understands the extracted report and explains each value in simple language.
+        </p>
+
+    </div>
+
+    <div class="timeline-card">
+
+        <div class="timeline-number">04</div>
+
+        <div class="timeline-icon">
+            <i class="fas fa-heartbeat"></i>
+        </div>
+
+        <h3>Health Summary</h3>
+
+        <p>
+            High, Low and Normal values are highlighted with personalized health insights.
+        </p>
+
+    </div>
+
+</div>
+
+</div>
+
+</section>
+<!--================ FEATURES =================-->
+<section class="features" id="features">
+    <div class="container">
+
+        <div class="section-title">
+            <span>AI FEATURES</span>
+            <h2>Everything You Need To Understand <span>Your Medical Reports</span></h2>
+            <p>Powerful AI tools designed to extract, analyze, and explain your health reports with accuracy and simplicity.</p>
+        </div>
+
+        <!-- Wrapped Grid Layer to cleanly bind the localized background element -->
+        <div class="features-grid-wrapper">
+            <div class="features-grid">
+
+                <!-- Card 1 (AI Analysis - Ruby Tone) -->
+                <div class="feature-card f-ai">
+                    <div class="feature-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3>AI Analysis</h3>
+                    <p>Gemini AI explains every medical parameter in simple, easy-to-understand language.</p>
+                    <a href="#">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <!-- Card 2 (OCR Extraction - Deep Crimson) -->
+                <div class="feature-card f-ocr">
+                    <div class="feature-icon">
+                        <i class="fas fa-file-medical"></i>
+                    </div>
+                    <h3>OCR Extraction</h3>
+                    <p>Automatically extracts values from laboratory reports with high accuracy.</p>
+                    <a href="#">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <!-- Card 3 (Health Score - Sunset Coral) -->
+                <div class="feature-card f-score">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Health Score</h3>
+                    <p>Receive an AI-generated health score based on your laboratory values.</p>
+                    <a href="#">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <!-- Card 4 (Personal Insights - Rosewood Gold) -->
+                <div class="feature-card f-insights">
+                    <div class="feature-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3>Personal Insights</h3>
+                    <p>Understand abnormal values and receive personalized health summaries.</p>
+                    <a href="#">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <!-- Card 5 (Instant Results - Terracotta Flare) -->
+                <div class="feature-card f-speed">
+                    <div class="feature-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3>Instant Results</h3>
+                    <p>Your complete medical report is analyzed within seconds.</p>
+                    <a href="#">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <!-- Card 6 (Secure Reports - Burnished Amber) -->
+                <div class="feature-card f-security">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Secure Reports</h3>
+                    <p>All uploaded reports remain private and securely processed.</p>
+                    <a href="#">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</section>
+<!--================ WHY CHOOSE =================-->
+<section class="why"id="technology">
+    <div class="container why-container">
+        
+        <!-- Left Side: Interactive Animated Hero Visual -->
+        <div class="why-left">
+            <div class="why-image">
+                <div class="circle-bg"></div>
+                <div class="main-icon">
+                    <i class="fas fa-shield-heart"></i>
+                </div>
+                <div class="floating floating1">
+                    <i class="fas fa-brain"></i>
+                </div>
+                <div class="floating floating2">
+                    <i class="fas fa-lock"></i>
+                </div>
+                <div class="floating floating3">
+                    <i class="fas fa-heartbeat"></i>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Side: Section Details & Modern Grid Dashboard -->
+        <div class="why-right">
+            <div class="section-title left">
+                <span>WHY CHOOSE MEDIAI</span>
+                <h2>Trusted AI Designed <span>For Healthcare</span></h2>
+                <p>MediAI combines advanced OCR engineering and Gemini intelligence to instantly transform highly technical medical records into clear, actionable, and hyper-personalized insights.</p>
+            </div>
+
+            <div class="why-grid">
+                <!-- Card 1 -->
+                <div class="why-card">
+                    <i class="fas fa-brain"></i>
+                    <div>
+                        <h3>AI Powered Analysis</h3>
+                        <p>Medical values explained clearly in simple language.</p>
+                    </div>
+                </div>
+                
+                <!-- Card 2 -->
+                <div class="why-card">
+                    <i class="fas fa-file-medical"></i>
+                    <div>
+                        <h3>99% OCR Accuracy</h3>
+                        <p>Extracts laboratory report details precisely.</p>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="why-card">
+                    <i class="fas fa-lock"></i>
+                    <div>
+                        <h3>Privacy First</h3>
+                        <p>Your uploaded clinical data stays fully encrypted.</p>
+                    </div>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="why-card">
+                    <i class="fas fa-bolt"></i>
+                    <div>
+                        <h3>Fast Processing</h3>
+                        <p>Receive comprehensive medical insights within seconds.</p>
+                    </div>
+                </div>
+
+                <!-- Card 5 -->
+                <div class="why-card">
+                    <i class="fas fa-chart-line"></i>
+                    <div>
+                        <h3>Health Score</h3>
+                        <p>A unified wellness index built with intelligent trends.</p>
+                    </div>
+                </div>
+
+                <!-- Card 6 -->
+                <div class="why-card">
+                    <i class="fas fa-heart"></i>
+                    <div>
+                        <h3>Easy To Understand</h3>
+                        <p>Clear guidance without any complex jargon.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!--================ SAMPLE ANALYSIS =================-->
+<section class="sample" id="sample">
+    <div class="container">
+        
+        <div class="section-title">
+            <span>LIVE DEMO</span>
+            <h2>See How AI <span>Analyzes Reports</span></h2>
+            <p>From a simple medical report to intelligent health insights in just a few seconds.</p>
+        </div>
+
+        <div class="sample-container">
+            <!-- Left Card: The Report -->
+            <div class="report-card">
+                <div class="report-top">
+                    <i class="fas fa-file-medical"></i>
+                    <span>Blood_Test_Report.pdf</span>
+                </div>
+                <div class="report-body">
+                    <div class="scan-line"></div>
+                    <div class="patient-box">
+                        <div class="patient-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div>
+                            <h4>Patient Report</h4>
+                            <span>ID #20381</span>
+                        </div>
+                    </div>
+                    <div class="report-row">
+                        <span>Hemoglobin</span>
+                        <strong>13.4 g/dL</strong>
+                    </div>
+                    <div class="report-row">
+                        <span>WBC</span>
+                        <strong>11.8 K/uL</strong>
+                    </div>
+                    <div class="report-row">
+                        <span>Platelets</span>
+                        <strong>258 K/uL</strong>
+                    </div>
+                    <div class="report-row">
+                        <span>Vitamin D</span>
+                        <strong>17 ng/mL</strong>
+                    </div>
+                    <div class="report-row">
+                        <span>Blood Pressure</span>
+                        <strong>118/76</strong>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Center Element: The Transition Arrow -->
+            <div class="arrow-box">
+                <i class="fas fa-arrow-right"></i>
+            </div>
+
+            <!-- Right Card: The AI Analysis -->
+            <div class="analysis-card">
+                <div class="processing">
+                    <div class="dot"></div>
+                    <span>Analyzing Report...</span>
+                </div>
+
+                <h3>
+                    <i class="fas fa-robot"></i>
+                    AI Analysis
+                </h3>
+
+                <div class="analysis-item">
+                    <span>Red Blood Cells</span>
+                    <span class="normal">Normal</span>
+                </div>
+
+                <div class="analysis-item">
+                    <span>White Blood Cells</span>
+                    <span class="high">High</span>
+                </div>
+
+                <div class="analysis-item">
+                    <span>Vitamin D</span>
+                    <span class="low">Low</span>
+                </div>
+
+                <div class="score">
+                    <div class="score-top">
+                        <span>Health Score</span>
+                        <strong>92%</strong>
+                    </div>
+                    <div class="progress">
+                        <div class="progress-fill"></div>
+                    </div>
+                </div>
+
+                <div class="summary">
+                    <h4>AI Summary</h4>
+                    <p class="typing">Vitamin D deficiency detected. Recommend supplementation.</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+<!--================ TESTIMONIALS =================-->
+
+<section class="testimonials"id="reviews">
+
+<div class="container">
+
+<div class="section-title">
+
+<span>TESTIMONIALS</span>
+
+<h2>
+
+Loved By
+
+<span>Thousands Of Users</span>
+
+</h2>
+
+<p>
+
+Discover how MediAI is helping people understand their medical reports with confidence.
+
+</p>
+
+</div>
+
+<div class="testimonial-slider">
+
+<div class="testimonial-track">
+
+<!-- CARD 1 -->
+
+<div class="review-card">
+
+<div class="review-top">
+
+<img src="https://i.pravatar.cc/80?img=11">
+
+<div>
+
+<h3>Sarah Johnson</h3>
+
+<span>Verified User</span>
+
+</div>
+
+<i class="fas fa-circle-check verify"></i>
+
+</div>
+
+<div class="stars">
+
+★★★★★
+
+</div>
+
+<p>
+
+"This AI explained my blood report in seconds. Much easier than searching medical terms online."
+
+</p>
+
+</div>
+
+<!-- CARD 2 -->
+
+<div class="review-card">
+
+<div class="review-top">
+
+<img src="https://i.pravatar.cc/80?img=12">
+
+<div>
+
+<h3>Ali Khan</h3>
+
+<span>Medical Student</span>
+
+</div>
+
+<i class="fas fa-circle-check verify"></i>
+
+</div>
+
+<div class="stars">
+
+★★★★★
+
+</div>
+
+<p>
+
+"Beautiful interface and very accurate OCR extraction. Everything feels premium."
+
+</p>
+
+</div>
+
+<!-- CARD 3 -->
+
+<div class="review-card">
+
+<div class="review-top">
+
+<img src="https://i.pravatar.cc/80?img=15">
+
+<div>
+
+<h3>Emma Wilson</h3>
+
+<span>Doctor</span>
+
+</div>
+
+<i class="fas fa-circle-check verify"></i>
+
+</div>
+
+<div class="stars">
+
+★★★★★
+
+</div>
+
+<p>
+
+"I love how clearly the AI explains abnormal values. Great healthcare assistant."
+
+</p>
+
+</div>
+
+<!-- Duplicate the same cards once more for infinite scrolling -->
+
+<div class="review-card">
+
+<div class="review-top">
+
+<img src="https://i.pravatar.cc/80?img=11">
+
+<div>
+
+<h3>Sarah Johnson</h3>
+
+<span>Verified User</span>
+
+</div>
+
+<i class="fas fa-circle-check verify"></i>
+
+</div>
+
+<div class="stars">★★★★★</div>
+
+<p>
+
+"This AI explained my blood report in seconds. Much easier than searching medical terms online."
+
+</p>
+
+</div>
+
+<div class="review-card">
+
+<div class="review-top">
+
+<img src="https://i.pravatar.cc/80?img=12">
+
+<div>
+
+<h3>Ali Khan</h3>
+
+<span>Medical Student</span>
+
+</div>
+
+<i class="fas fa-circle-check verify"></i>
+
+</div>
+
+<div class="stars">★★★★★</div>
+
+<p>
+
+"Beautiful interface and very accurate OCR extraction. Everything feels premium."
+
+</p>
+
+</div>
+
+<div class="review-card">
+
+<div class="review-top">
+
+<img src="https://i.pravatar.cc/80?img=15">
+
+<div>
+
+<h3>Emma Wilson</h3>
+
+<span>Doctor</span>
+
+</div>
+
+<i class="fas fa-circle-check verify"></i>
+
+</div>
+
+<div class="stars">★★★★★</div>
+
+<p>
+
+"I love how clearly the AI explains abnormal values. Great healthcare assistant."
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+</div>
+
+</section>
+<!--================ IMPACT =================-->
+<section class="stats">
+    <div class="container">
+        <div class="section-title">
+            <span>OUR IMPACT</span>
+            <h2>Trusted By <span>Healthcare Professionals</span></h2>
+            <p>Delivering fast, intelligent and reliable AI-powered medical report analysis.</p>
+        </div>
+    </div>
+
+    <!-- This new full-width wrapper handles the edge-to-edge background image layer -->
+    <div class="stats-grid-fluid-bg">
+        <div class="container">
+            <div class="stats-grid">
+
+                <!-- Card 1: Reports Analyzed (Ruby Tone) -->
+                <div class="stat-card stat-reports">
+                    <div class="stat-icon">
+                        <i class="fas fa-file-medical"></i>
+                    </div>
+                    <h2 class="counter" data-target="15000">0</h2>
+                    <p>Reports Analyzed</p>
+                </div>
+
+                <!-- Card 2: OCR Accuracy (Deep Crimson) -->
+                <div class="stat-card stat-accuracy">
+                    <div class="stat-icon">
+                        <i class="fas fa-heart-pulse"></i>
+                    </div>
+                    <h2 class="counter" data-target="98">0</h2>
+                    <p>OCR Accuracy (%)</p>
+                </div>
+
+                <!-- Card 3: Average Speed (Sunset Coral) -->
+                <div class="stat-card stat-speed">
+                    <div class="stat-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h2 class="counter" data-target="5">0</h2>
+                    <p>Average Analysis (sec)</p>
+                </div>
+
+                <!-- Card 4: Happy Users (Terracotta Flare) -->
+                <div class="stat-card stat-users">
+                    <div class="stat-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h2 class="counter" data-target="3000">0</h2>
+                    <p>Happy Users</p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+<!--================ SUPPORTED REPORTS =================-->
+
+<section class="reports"id="services">
+
+<div class="container">
+
+<div class="section-title">
+
+<span>SUPPORTED REPORTS</span>
+
+<h2>
+
+Analyze Almost
+
+<span>Every Medical Report</span>
+
+</h2>
+
+<p>
+
+Our AI understands laboratory reports, imaging reports, diagnostic documents and many more.
+
+</p>
+
+</div>
+
+<!-- Row 1 -->
+
+<div class="reports-slider">
+
+<div class="reports-track left">
+
+<!-- Blood -->
+
+<div class="report-card">
+
+<div class="report-icon blood">
+
+<i class="fas fa-vial"></i>
+
+</div>
+
+<h3>Blood Test</h3>
+
+</div>
+
+<!-- CBC -->
+
+<div class="report-card">
+
+<div class="report-icon cbc">
+
+<i class="fas fa-droplet"></i>
+
+</div>
+
+<h3>CBC Report</h3>
+
+</div>
+
+<!-- ECG -->
+
+<div class="report-card">
+
+<div class="report-icon ecg">
+
+<i class="fas fa-heartbeat"></i>
+
+</div>
+
+<h3>ECG</h3>
+
+</div>
+
+<!-- MRI -->
+
+<div class="report-card">
+
+<div class="report-icon mri">
+
+<i class="fas fa-brain"></i>
+
+</div>
+
+<h3>MRI Scan</h3>
+
+</div>
+
+<!-- Liver -->
+
+<div class="report-card">
+
+<div class="report-icon liver">
+
+<i class="fas fa-pills"></i>
+
+</div>
+
+<h3>Liver Profile</h3>
+
+</div>
+
+<!-- Duplicate -->
+
+<div class="report-card">
+
+<div class="report-icon blood">
+
+<i class="fas fa-vial"></i>
+
+</div>
+
+<h3>Blood Test</h3>
+
+</div>
+
+<div class="report-card">
+
+<div class="report-icon cbc">
+
+<i class="fas fa-droplet"></i>
+
+</div>
+
+<h3>CBC Report</h3>
+
+</div>
+
+<div class="report-card">
+
+<div class="report-icon ecg">
+
+<i class="fas fa-heartbeat"></i>
+
+</div>
+
+<h3>ECG</h3>
+
+</div>
+
+<div class="report-card">
+
+<div class="report-icon mri">
+
+<i class="fas fa-brain"></i>
+
+</div>
+
+<h3>MRI Scan</h3>
+
+</div>
+
+<div class="report-card">
+
+<div class="report-icon liver">
+
+<i class="fas fa-pills"></i>
+
+</div>
+
+<h3>Liver Profile</h3>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- Row 2 -->
+
+<div class="reports-slider">
+
+<div class="reports-track right">
+
+<div class="report-card">
+
+<div class="report-icon kidney">
+
+<i class="fas fa-kidneys"></i>
+
+</div>
+
+<h3>Kidney Test</h3>
+
+</div>
+
+<div class="report-card">
+
+<div class="report-icon xray">
+
+<i class="fas fa-x-ray"></i>
+
+</div>
+
+<h3>X-Ray</h3>
+
+</div>
+
+<div class="report-card">
+
+<div class="report-icon thyroid">
+
+<i class="fas fa-microscope"></i>
+
+</div>
+
+<h3>Thyroid</h3>
+
+</div>
+
+<div class="report-card">
+
+<div class="report-icon diabetes">
+
+<i class="fas fa-syringe"></i>
+
+</div>
+
+<h3>Diabetes</h3>
+
+</div>
+
+<div class="report-card">
+
+<div class="report-icon report">
+
+<i class="fas fa-file-medical"></i>
+
+</div>
+
+<h3>Medical Record</h3>
+
+</div>
+
+
+<div class="report-card">
+    <div class="report-icon kidney">
+        <i class="fas fa-capsules"></i> 
+    </div>
+    <h3>Kidney Test</h3>
+</div>
+
+
+
+<div class="report-card">
+
+<div class="report-icon xray">
+
+<i class="fas fa-x-ray"></i>
+
+</div>
+
+<h3>X-Ray</h3>
+
+</div>
+
+<div class="report-card">
+
+<div class="report-icon thyroid">
+
+<i class="fas fa-microscope"></i>
+
+</div>
+
+<h3>Thyroid</h3>
+
+</div>
+
+<div class="report-card">
+
+<div class="report-icon diabetes">
+
+<i class="fas fa-syringe"></i>
+
+</div>
+
+<h3>Diabetes</h3>
+
+</div>
+
+<div class="report-card">
+
+<div class="report-icon report">
+
+<i class="fas fa-file-medical"></i>
+
+</div>
+
+<h3>Medical Record</h3>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!--================ SECURITY =================-->
+
+<section class="security"id="security">
+
+<div class="container">
+
+<div class="section-title">
+
+<span>SECURITY</span>
+
+<h2>
+
+Your Medical Data
+
+<span>Stays Private</span>
+
+</h2>
+
+<p>
+
+Built with privacy-first architecture to ensure your reports remain secure throughout the analysis process.
+
+</p>
+
+</div>
+
+<div class="security-wrapper">
+
+<div class="security-left">
+
+<div class="security-card">
+
+<div class="security-icon encrypt">
+
+<i class="fas fa-lock"></i>
+
+</div>
+
+<div>
+
+<h3>End-to-End Encryption</h3>
+
+<p>
+
+Your reports are encrypted during upload and processing.
+
+</p>
+
+</div>
+
+</div>
+
+<div class="security-card">
+
+<div class="security-icon ai">
+
+<i class="fas fa-brain"></i>
+
+</div>
+
+<div>
+
+<h3>AI Powered Analysis</h3>
+
+<p>
+
+Advanced AI extracts and explains medical values accurately.
+
+</p>
+
+</div>
+
+</div>
+
+<div class="security-card">
+
+<div class="security-icon delete">
+
+<i class="fas fa-trash"></i>
+
+</div>
+
+<div>
+
+<h3>No Permanent Storage</h3>
+
+<p>
+
+Uploaded reports can be automatically deleted after analysis.
+
+</p>
+
+</div>
+
+</div>
+
+<div class="security-card">
+
+<div class="security-icon shield">
+
+<i class="fas fa-shield-halved"></i>
+
+</div>
+
+<div>
+
+<h3>Privacy First</h3>
+
+<p>
+
+Your medical information is never shared with third parties.
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="security-right">
+
+<div class="security-display">
+
+<div class="shield-circle">
+
+<i class="fas fa-shield-halved"></i>
+
+</div>
+
+<h3>Protected By AI Security</h3>
+
+<p>
+
+Encrypted Upload
+
+</p>
+
+<p>
+
+Secure Processing
+
+</p>
+
+<p>
+
+Private Results
+
+</p>
+
+<div class="pulse-ring"></div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+<!--================ UPLOAD SECTION =================-->
+
+<section class="upload-section" id="upload">
+
+<div class="container">
+
+<div class="section-title">
+
+<span>TRY IT NOW</span>
+
+<h2>
+
+Upload Your
+
+<span>Medical Report</span>
+
+</h2>
+
+<p>
+
+Drag & drop your medical report and receive an AI-powered analysis in just a few seconds.
+
+</p>
+
+</div>
+
+<div class="upload-wrapper">
+
+<div class="upload-left">
+
+<h3>
+
+Start Your AI Health Analysis
+
+</h3>
+
+<p>
+
+Supported Files
+
+</p>
+
+<div class="supported-files">
+
+<div>
+
+<i class="fas fa-file-pdf"></i>
+
+PDF
+
+</div>
+
+<div>
+
+<i class="fas fa-image"></i>
+
+PNG
+
+</div>
+
+<div>
+
+<i class="fas fa-image"></i>
+
+JPG
+
+</div>
+
+<div>
+
+<i class="fas fa-file-medical"></i>
+
+Medical Reports
+
+</div>
+
+</div>
+
+<form
+action="/upload"
+method="POST"
+enctype="multipart/form-data">
+
+<label class="upload-box">
+
+<input
+type="file"
+id="fileInput"
+name="report"
+accept=".pdf,.png,.jpg,.jpeg">
+
+<div class="upload-icon">
+
+<i class="fas fa-cloud-upload-alt"></i>
+
+</div>
+
+<h3>
+
+Drag & Drop Report
+
+</h3>
+
+<p id="fileName">
+
+Click here or drop your report
+
+</p>
+
+</label>
+
+<button
+class="upload-btn"
+type="submit">
+
+<i class="fas fa-upload"></i>
+
+Analyze Report
+
+</button>
+
+</form>
+
+</div>
+
+<div class="upload-right">
+
+<div class="upload-preview">
+
+<div class="preview-top">
+
+<div class="pulse"></div>
+
+Live Preview
+
+</div>
+
+<div class="preview-body">
+
+<div class="preview-row">
+
+<span>Hemoglobin</span>
+
+<strong>13.4 g/dL</strong>
+
+</div>
+
+<div class="preview-row">
+
+<span>Vitamin D</span>
+
+<strong class="low">Low</strong>
+
+</div>
+
+<div class="preview-row">
+
+<span>Blood Sugar</span>
+
+<strong class="normal">Normal</strong>
+
+</div>
+
+<div class="preview-row">
+
+<span>Health Score</span>
+
+<strong>92%</strong>
+
+</div>
+
+</div>
+
+<div class="preview-footer">
+
+<i class="fas fa-robot"></i>
+
+Waiting for Report...
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+<!--================ FAQ =================-->
+
+<section class="faq" id="faq">
+
+<div class="container">
+
+<div class="section-title">
+
+<span>FAQ</span>
+
+<h2>
+
+Frequently Asked
+
+<span>Questions</span>
+
+</h2>
+
+<p>
+
+Everything you need to know about MediAI.
+
+</p>
+
+</div>
+
+<div class="faq-container">
+
+<div class="faq-item active">
+
+<div class="faq-question">
+
+<h3>What medical reports can I upload?</h3>
+
+<span class="faq-icon">+</span>
+
+</div>
+
+<div class="faq-answer">
+
+<p>
+
+You can upload Blood Tests, CBC, MRI, CT Scan, X-Ray, ECG, Ultrasound,
+Liver Function, Kidney Function, Diabetes reports and many more.
+
+</p>
+
+</div>
+
+</div>
+
+<div class="faq-item">
+
+<div class="faq-question">
+
+<h3>Is my medical data secure?</h3>
+
+<span class="faq-icon">+</span>
+
+</div>
+
+<div class="faq-answer">
+
+<p>
+
+Yes. All uploaded reports are securely processed and your data remains private.
+
+</p>
+
+</div>
+
+</div>
+
+<div class="faq-item">
+
+<div class="faq-question">
+
+<h3>Does AI replace a doctor?</h3>
+
+<span class="faq-icon">+</span>
+
+</div>
+
+<div class="faq-answer">
+
+<p>
+
+No. MediAI provides explanations and insights but should not replace professional medical advice.
+
+</p>
+
+</div>
+
+</div>
+
+<div class="faq-item">
+
+<div class="faq-question">
+
+<h3>How long does analysis take?</h3>
+
+<span class="faq-icon">+</span>
+
+</div>
+
+<div class="faq-answer">
+
+<p>
+
+Most reports are analyzed in under 10 seconds.
+
+</p>
+
+</div>
+
+</div>
+
+<div class="faq-item">
+
+<div class="faq-question">
+
+<h3>Can I upload images instead of PDFs?</h3>
+
+<span class="faq-icon">+</span>
+
+</div>
+
+<div class="faq-answer">
+
+<p>
+
+Yes. JPG, PNG, JPEG and PDF files are fully supported.
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+<!--================ FOOTER =================-->
+
+<footer class="footer">
+
+<div class="footer-top-line"></div>
+
+<div class="container footer-container">
+
+    <!-- Left -->
+
+    <div class="footer-about">
+
+        <div class="footer-logo">
+
+            <div class="footer-logo-icon">
+
+                <i class="fas fa-heartbeat"></i>
+
+            </div>
+
+            <div>
+
+                <h2>MediAI</h2>
+
+                <span>Medical Intelligence</span>
+
+            </div>
+
+        </div>
+
+        <p>
+
+            AI-powered medical report analyzer that helps patients understand
+            laboratory reports through intelligent explanations, abnormality
+            detection, and personalized health insights.
+
+        </p>
+
+        <div class="footer-social">
+
+            <a href="https://github.com/MobeenFatimaa"><i class="fab fa-github"></i></a>
+
+            <a href="https://www.linkedin.com/in/mobeen-fatima-599a35347/"><i class="fab fa-linkedin"></i></a>
+
+            <a href="mailto:fatimahmobeen47@gmail.com"><i class="fas fa-envelope"></i></a>
+
+            <a href="https://www.kaggle.com/mobeenfatimah"><i class="fas fa-globe"></i></a>
+
+        </div>
+
+    </div>
+
+    <!-- Links -->
+
+    <div class="footer-links">
+
+        <h3>Quick Links</h3>
+
+        <a href="#home">Home</a>
+
+        <a href="#features">Features</a>
+
+        <a href="#how it works">How It Works</a>
+
+        <a href="#technology">Why Choose MediAI</a>
+         <a href="#security">Security</a>
+          <a href="#reviews">Reviews</a>
+        <a href="#faq">FAQ</a>
+
+        <a href="#contact">Contact</a>
+         <a href="#upload">Try Now</a>
+       
+
+       
+    </div>
+
+    <!-- Services -->
+
+    <div class="footer-links">
+
+        <h3>Services</h3>
+
+        <a href="#services">Blood Test Analysis</a>
+
+        <a href="#services">MRI Reports</a>
+
+        <a href="#services">ECG Reports</a>
+
+        <a href="#services">AI Health Score</a>
+
+        <a href="#services">Medical Insights</a>
+
+    </div>
+
+    <!-- Contact -->
+
+    <div class="footer-contact" id="contact">
+
+        <h3>Contact</h3>
+
+        <p>
+
+            <i class="fas fa-envelope"></i>
+
+            fatimahmobeen47@gmail.com
+
+        </p>
+
+        <p>
+
+            <i class="fas fa-globe"></i>
+
+            https://github.com/MobeenFatimaa
+
+        </p>
+
+        <p>
+
+            <i class="fas fa-location-dot"></i>
+
+            Islamabad, Pakistan
+
+        </p>
+        <form action="/contact" method="POST" class="newsletter">
+
+    <input
+        type="text"
+        name="name"
+        placeholder="Your Name"
+        required>
+
+    <input
+        type="email"
+        name="email"
+        placeholder="Your Email"
+        required>
+
+    <textarea
+        name="message"
+        placeholder="Write your message..."
+        required></textarea>
+
+    <button type="submit">
+
+        Send Message
+
+    </button>
+
+</form>
+
+    </div>
+
+</div>
+
+<div class="footer-bottom">
+
+<p>
+
+© 2026 MediAI. All Rights Reserved.
+
+</p>
+
+<p>
+
+Built by Mobeen Fatima using Flask & Gemini AI
+
+</p>
+
+</div>
+
+</footer>
+<!--================ SUCCESS POPUP =================-->
+
+<div class="popup-overlay" id="popup">
+
+    <div class="popup-box">
+
+        <div class="popup-icon">
+
+            <i class="fas fa-circle-check"></i>
+
+        </div>
+
+        <h2>Message Sent!</h2>
+
+        <p>
+
+            Thank you for contacting us.
+
+            Your message has been successfully sent.
+
+            We'll reply as soon as possible.
+
+        </p>
+
+        <button id="closePopup">
+
+            Awesome!
+
+        </button>
+
+    </div>
+
+</div>
+
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+<script src="{{ url_for('static', filename='js/upload.js') }}"></script>
+<script src="{{ url_for('static', filename='js/animation.js') }}"></script>
+
+</body>
+
+</html>

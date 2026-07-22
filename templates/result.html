@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Medical Analysis</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/result.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+
+<body>
+
+    <div class="background"></div>
+
+    <div class="result-title">
+        <h1>
+            <i class="fas fa-notes-medical"></i>
+            AI Medical Analysis
+        </h1>
+        <p>
+            Your medical report has been successfully analyzed using Artificial Intelligence.
+        </p>
+    </div>
+
+    <div class="container" id="report-content">
+
+        <!-- OVERALL RISK -->
+        <div class="risk-card">
+            <h3>Overall Risk</h3>
+            {% if analysis.health_score >= 85 %}
+                <div class="risk low">
+                    <i class="fas fa-shield-heart"></i>
+                    Low Risk
+                </div>
+            {% elif analysis.health_score >= 60 %}
+                <div class="risk medium">
+                    <i class="fas fa-heart-circle-exclamation"></i>
+                    Moderate Risk
+                </div>
+            {% else %}
+                <div class="risk high">
+                    <i class="fas fa-triangle-exclamation"></i>
+                    High Risk
+                </div>
+            {% endif %}
+        </div>
+
+        <!-- DASHBOARD HEADER -->
+        <div class="dashboard-header">
+            <div class="score-card glass-card">
+                <div class="score-circle">
+                    <span id="scoreValue">0%</span>
+                </div>
+                <h3>Health Score</h3>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <i class="fas fa-heart-pulse"></i>
+                    <h4>Risk Level</h4>
+                    {% if analysis.health_score >= 85 %}
+                        <span class="good">Low</span>
+                    {% elif analysis.health_score >= 60 %}
+                        <span class="warning">Moderate</span>
+                    {% else %}
+                        <span class="danger">High</span>
+                    {% endif %}
+                </div>
+
+                <div class="stat-card">
+                    <i class="fas fa-triangle-exclamation"></i>
+                    <h4>Findings</h4>
+                    <span>{{ analysis.abnormal_values|length }}</span>
+                </div>
+
+                <div class="stat-card">
+                    <i class="fas fa-robot"></i>
+                    <h4>AI Status</h4>
+                    <span class="good">Completed</span>
+                </div>
+
+                <div class="stat-card">
+                    <i class="fas fa-calendar-check"></i>
+                    <h4>Report Type</h4>
+                    <span>Medical</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- REPORT OVERVIEW -->
+        <div class="glass-card">
+            <h2>
+                <i class="fas fa-file-waveform"></i>
+                Report Overview
+            </h2>
+            <div class="overview-grid">
+                <div class="overview-item">
+                    <span>Document Type</span>
+                    <strong>Medical Report</strong>
+                </div>
+                <div class="overview-item">
+                    <span>AI Engine</span>
+                    <strong>Google Gemini</strong>
+                </div>
+                <div class="overview-item">
+                    <span>Analysis Status</span>
+                    <strong class="good">Completed</strong>
+                </div>
+                <div class="overview-item">
+                    <span>Detected Findings</span>
+                    <strong>{{ analysis.abnormal_values|length }}</strong>
+                </div>
+            </div>
+        </div>
+
+        <!-- SUMMARY -->
+        <div class="glass-card">
+            <h2>
+                <i class="fa-solid fa-file-medical"></i>
+                Summary
+            </h2>
+            <p class="summary-text">
+                {{ analysis.summary }}
+            </p>
+        </div>
+
+        <!-- FINDINGS -->
+        <div class="glass-card">
+            <h2>
+                <i class="fa-solid fa-heart-pulse"></i>
+                AI Detected Findings
+            </h2>
+
+            {% for item in analysis.abnormal_values %}
+            <div class="finding-card">
+                <div class="finding-left">
+                    <div class="finding-icon">
+                        <i class="fa-solid fa-triangle-exclamation"></i>
+                    </div>
+                    <div class="finding-content">
+                        <h3>{{ item.name }}</h3>
+                        <p>{{ item.reason }}</p>
+                    </div>
+                </div>
+
+                <div class="severity">
+                    <div class="severity-bar">
+                        <div class="severity-fill"></div>
+                    </div>
+                    <span class="status danger">
+                        {{ item.status }}
+                    </span>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+        <!-- HEALTH CHART -->
+        <div class="glass-card">
+            <h2>
+                <i class="fas fa-chart-pie"></i>
+                Health Analysis
+            </h2>
+            <div class="chart-box">
+                <canvas id="abnormalChart"></canvas>
+            </div>
+        </div>
+
+        <!-- RECOMMENDATIONS -->
+        <div class="glass-card">
+            <h2>
+                <i class="fa-solid fa-notes-medical"></i>
+                Recommendations
+            </h2>
+            <ul class="recommendations-list">
+                {% for rec in analysis.recommendations %}
+                <li>
+                    <i class="fa-solid fa-circle-check"></i>
+                    <span>{{ rec }}</span>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <!-- ACTION BUTTONS -->
+        <div class="buttons">
+        <a href="/" class="btn">Analyze Another Report</a>
+        <button class="btn" onclick="downloadPDF()">
+            <i class="fas fa-file-pdf" style="margin-right: 8px;"></i>Download PDF
+        </button>
+    </div>
+
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        const score = Number("{{ analysis.health_score }}");
+        let current = 0;
+
+        const scoreElement = document.getElementById("scoreValue");
+        const circle = document.querySelector(".score-circle");
+
+        const interval = setInterval(() => {
+            if (current >= score) {
+                clearInterval(interval);
+                return;
+            }
+            current++;
+            scoreElement.innerHTML = current + "%";
+            circle.style.setProperty("--score", current);
+        }, 15);
+
+        // Chart configuration
+        const abnormalCount = Number("{{ analysis.abnormal_values|length }}");
+        const total = abnormalCount + 5;
+        const normalCount = Math.max(total - abnormalCount, 1);
+
+        new Chart(document.getElementById("abnormalChart"), {
+            type: "doughnut",
+            data: {
+                labels: ["Normal", "Abnormal"],
+                datasets: [{
+                    data: [normalCount, abnormalCount],
+                    backgroundColor: ["#10B981", "#EF4444"],
+                    borderWidth: 0,
+                    hoverOffset: 8
+                }]
+            },
+            options: {
+                responsive: true,
+                cutout: "75%",
+                plugins: {
+                    legend: {
+                        position: "bottom",
+                        labels: {
+                            color: "#D1D5DB",
+                            font: { size: 14, family: "'Manrope', sans-serif" },
+                            padding: 16
+                        }
+                    }
+                }
+            }
+        });
+// ----------------------------------------------------
+    // PDF DOWNLOAD FUNCTION
+    // ----------------------------------------------------
+function downloadPDF() {
+    const originalElement = document.getElementById("report-content");
+
+    // 1. Clone the report node
+    const clonedElement = originalElement.cloneNode(true);
+
+    // 2. Hide unwanted UI controls in the cloned copy
+    const buttons = clonedElement.querySelector(".buttons");
+    if (buttons) buttons.remove();
+
+    // 3. Create a temporary wrapper sized specifically for A4 printable width
+    const printWrapper = document.createElement("div");
+    printWrapper.id = "pdf-print-wrapper";
+    printWrapper.style.position = "absolute";
+    printWrapper.style.left = "-9999px"; // Off-screen
+    printWrapper.style.top = "0";
+    printWrapper.style.width = "680px"; // Fits A4 print width with margins
+    printWrapper.style.padding = "15px";
+    printWrapper.style.backgroundColor = "#030712";
+    printWrapper.style.boxSizing = "border-box";
+
+    // Append cloned content to wrapper, then append wrapper to body
+    printWrapper.appendChild(clonedElement);
+    document.body.appendChild(printWrapper);
+
+    // 4. Inject strict layout and page-break override styles
+    const pdfStyle = document.createElement("style");
+    pdfStyle.id = "pdf-style-override";
+    pdfStyle.innerHTML = `
+        #pdf-print-wrapper * {
+            box-sizing: border-box !important;
+        }
+        #pdf-print-wrapper .container {
+            width: 100% !important;
+            max-width: 100% !important;
+            margin: 0 !important;
+            padding: 0 !important;
+        }
+        #pdf-print-wrapper .glass-card,
+        #pdf-print-wrapper .stat-card,
+        #pdf-print-wrapper .risk-card,
+        #pdf-print-wrapper .overview-item,
+        #pdf-print-wrapper .finding-card {
+            background-color: #0f172a !important;
+            background: #0f172a !important;
+            border: 1px solid #334155 !important;
+            backdrop-filter: none !important;
+            -webkit-backdrop-filter: none !important;
+            box-shadow: none !important;
+            page-break-inside: avoid !important;
+            break-inside: avoid !important;
+        }
+        #pdf-print-wrapper h1, 
+        #pdf-print-wrapper h2, 
+        #pdf-print-wrapper h3, 
+        #pdf-print-wrapper h4, 
+        #pdf-print-wrapper span, 
+        #pdf-print-wrapper strong, 
+        #pdf-print-wrapper p, 
+        #pdf-print-wrapper li {
+            color: #F8FAFC !important;
+            text-shadow: none !important;
+        }
+        #pdf-print-wrapper .stat-card h4, 
+        #pdf-print-wrapper .overview-item span {
+            color: #94A3B8 !important;
+        }
+        #pdf-print-wrapper .score-circle::before {
+            background-color: #030712 !important;
+        }
+        #pdf-print-wrapper .finding-card {
+            display: flex !important;
+            flex-direction: row !important;
+            justify-content: space-between !important;
+            align-items: center !important;
+        }
+        #pdf-print-wrapper .chart-box {
+            max-width: 240px !important;
+            margin: 10px auto !important;
+        }
+    `;
+    document.head.appendChild(pdfStyle);
+
+    // 5. PDF generation options with clean page breaking
+    const options = {
+        margin:       [0.3, 0.3, 0.3, 0.3],
+        filename:     'AI_Medical_Report.pdf',
+        image:        { type: 'jpeg', quality: 0.98 },
+        html2canvas:  { 
+            scale: 2, 
+            useCORS: true, 
+            backgroundColor: '#030712',
+            scrollY: 0,
+            scrollX: 0,
+            windowWidth: 720
+        },
+        jsPDF:        { unit: 'in', format: 'a4', orientation: 'portrait' },
+        pagebreak:    { mode: ['avoid-all', 'css', 'legacy'] }
+    };
+
+    // 6. Generate PDF and clean up
+    html2pdf().set(options).from(printWrapper).save().then(() => {
+        printWrapper.remove();
+        pdfStyle.remove();
+    });
+}
+    </script>
+
+</body>
+
+</html>

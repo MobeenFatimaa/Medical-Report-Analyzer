@@ -1,0 +1,224 @@
+/* ============================================================================
+   SECURITY SECTION (IMPROVED UI)
+============================================================================ */
+
+.security {
+    padding: 150px 0;
+    position: relative;
+    width: 100%;
+    box-sizing: border-box;
+    z-index: 1;
+}
+
+/* Whole Section Background Image System */
+.security::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../images/security-bg.jpg'); 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.35; /* Maintains perfect contrast against text and structural cards */
+    mix-blend-mode: luminosity; 
+    z-index: -2;
+    pointer-events: none;
+}
+
+/* Gradient Overlay Mask for Unified Dark-Mode Architecture */
+.security::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, rgba(10, 10, 12, 0.2) 0%, rgba(10, 10, 12, 0.95) 100%);
+    z-index: -1;
+    pointer-events: none;
+}
+
+.security-wrapper {
+    display: grid;
+    grid-template-columns: 1.2fr .8fr;
+    gap: 60px;
+    align-items: center;
+    margin-top: 80px;
+}
+
+.security-left {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+/* Glassmorphic Interactive Security Cards */
+.security-card {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+    padding: 24px;
+    border-radius: 24px;
+    background: rgba(255, 255, 255, .05);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(218, 160, 109, .18);
+    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), 
+                border-color 0.4s ease, 
+                box-shadow 0.4s ease,
+                background 0.4s ease;
+}
+
+.security-card:hover {
+    transform: translateX(10px);
+    border-color: #DAA06D;
+    background: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 18px 40px rgba(218, 160, 109, .18);
+}
+
+.security-icon {
+    width: 70px;
+    height: 70px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 28px;
+    color: white;
+    flex-shrink: 0;
+    transition: transform 0.4s ease;
+}
+
+.security-card:hover .security-icon {
+    transform: scale(1.05) rotate(-5deg);
+}
+
+/* Specific Multi-Tone Color Track Gradients */
+.encrypt { background: linear-gradient(135deg, #2563EB, #60A5FA); }
+.ai      { background: linear-gradient(135deg, #7C3AED, #C084FC); }
+.delete  { background: linear-gradient(135deg, #DC2626, #F87171); }
+.shield  { background: linear-gradient(135deg, #059669, #34D399); }
+
+.security-card h3 {
+    margin: 0 0 8px 0;
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.security-card p {
+    margin: 0;
+    opacity: .8;
+    line-height: 1.7;
+    font-size: 15px;
+}
+
+/* Right Dashboard Presentation Frame */
+.security-display {
+    position: relative;
+    height: 430px;
+    border-radius: 35px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: rgba(255, 255, 255, .05);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    border: 1px solid rgba(218, 160, 109, .18);
+    overflow: hidden;
+    z-index: 1;
+}
+
+.shield-circle {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 60px;
+    background: linear-gradient(135deg, #991B1B, #DAA06D);
+    color: white;
+    margin-bottom: 30px;
+    box-shadow: 0 15px 40px rgba(218, 160, 109, 0.25);
+    animation: pulse 3s infinite ease-in-out;
+}
+
+.security-display h3 {
+    font-size: 28px;
+    font-weight: 700;
+    margin: 0 0 20px 0;
+}
+
+.security-display p {
+    margin: 6px 0;
+    opacity: .85;
+    font-size: 16px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Adds clean visual check verification indicators directly before lines */
+.security-display p::before {
+    content: "\f058";
+    font-family: "Font Awesome 5 Free", "Font Awesome 6 Free";
+    font-weight: 900;
+    color: #4ADE80;
+    font-size: 14px;
+}
+
+.pulse-ring {
+    position: absolute;
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    border: 2px solid rgba(218, 160, 109, .25);
+    animation: ring 3s infinite cubic-bezier(0.25, 1, 0.5, 1);
+    z-index: -1;
+    pointer-events: none;
+}
+
+/* ============================================================================
+   ANIMATION KEYFRAMES
+============================================================================ */
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.06); }
+}
+
+@keyframes ring {
+    0% {
+        transform: scale(.8);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1.5);
+        opacity: 0;
+    }
+}
+
+/* ============================================================================
+   RESPONSIVE MEDIA LAYERS
+============================================================================ */
+
+@media(max-width: 900px) {
+    .security {
+        padding: 90px 0;
+    }
+
+    .security-wrapper {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        margin-top: 50px;
+    }
+    
+    .security-display {
+        height: 380px;
+    }
+}

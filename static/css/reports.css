@@ -1,0 +1,202 @@
+/* ============================================================================
+   SUPPORTED REPORTS SECTION (IMPROVED UI)
+============================================================================ */
+
+.reports {
+    padding: 130px 0;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    box-sizing: border-box;
+    z-index: 1;
+}
+
+/* Whole Section Background Image System */
+.reports::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../images/report-bg.jpg'); 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.35; /* Perfectly balanced for dark-mode text legibility */
+    mix-blend-mode: luminosity; 
+    z-index: -2;
+    pointer-events: none;
+}
+
+/* Gradient Overlay Mask for Multi-Layer Layout Contrast */
+.reports::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, rgba(10, 10, 12, 0.2) 0%, rgba(10, 10, 12, 0.95) 100%);
+    z-index: -1;
+    pointer-events: none;
+}
+
+.reports-slider {
+    overflow: hidden;
+    margin: 25px 0;
+}
+
+.reports-track {
+    display: flex;
+    gap: 22px;
+    width: max-content;
+}
+
+/* Slider Animations */
+.left {
+    animation: slideLeft 28s linear infinite;
+}
+
+.right {
+    animation: slideRight 28s linear infinite;
+}
+
+.reports-slider:hover .reports-track {
+    animation-play-state: paused;
+}
+
+/* ============================================================================
+   REPORT CARDS
+============================================================================ */
+
+.reports .report-card {
+    width: 190px;
+    height: 170px;
+    padding: 20px 16px;
+    border-radius: 24px;
+    background: rgba(255, 255, 255, .05);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(218, 160, 109, .18);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), 
+                border-color 0.4s ease, 
+                box-shadow 0.4s ease,
+                background 0.4s ease;
+    position: relative;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+/* Radial Card Glow Ring */
+.reports .report-card::before {
+    content: "";
+    position: absolute;
+    width: 160px;
+    height: 160px;
+    top: -70px;
+    right: -70px;
+    border-radius: 50%;
+    background: radial-gradient(rgba(218, 160, 109, .15), transparent 70%);
+    transition: transform 0.5s ease;
+    pointer-events: none;
+}
+
+.reports .report-card:hover {
+    transform: translateY(-8px) scale(1.03);
+    border-color: #DAA06D;
+    background: rgba(255, 255, 255, .09);
+    box-shadow: 0 18px 45px rgba(218, 160, 109, .18);
+}
+
+.reports .report-card:hover::before {
+    transform: scale(1.35);
+}
+
+/* Icons */
+.reports .report-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 18px;
+    font-size: 26px;
+    color: white;
+    transition: transform 0.4s ease;
+}
+
+.reports .report-card:hover .report-icon {
+    transform: rotate(-10deg) scale(1.08);
+}
+
+/* Typography */
+.reports .report-card h3 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1.35;
+    color: #ffffff;
+}
+
+/* ============================================================================
+   DYNAMIC SLIDER ANIMATIONS
+============================================================================ */
+
+@keyframes slideLeft {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+@keyframes slideRight {
+    0% { transform: translateX(-50%); }
+    100% { transform: translateX(0); }
+}
+
+/* ============================================================================
+   ICON THEME COLORS
+============================================================================ */
+
+.blood    { background: linear-gradient(135deg, #DC2626, #F87171); }
+.cbc      { background: linear-gradient(135deg, #2563EB, #60A5FA); }
+.ecg      { background: linear-gradient(135deg, #059669, #34D399); }
+.mri      { background: linear-gradient(135deg, #7C3AED, #C084FC); }
+.liver    { background: linear-gradient(135deg, #EA580C, #FDBA74); }
+.kidney   { background: linear-gradient(135deg, #0891B2, #67E8F9); }
+.xray     { background: linear-gradient(135deg, #4B5563, #9CA3AF); }
+.thyroid  { background: linear-gradient(135deg, #9333EA, #E879F9); }
+.diabetes { background: linear-gradient(135deg, #CA8A04, #FACC15); }
+.report   { background: linear-gradient(135deg, #BE185D, #F472B6); }
+
+/* ============================================================================
+   RESPONSIVE MEDIA LAYER
+============================================================================ */
+
+@media (max-width: 768px) {
+    .reports {
+        padding: 90px 0;
+    }
+
+    .reports .report-card {
+        width: 165px;
+        height: 150px;
+    }
+
+    .reports .report-icon {
+        width: 52px;
+        height: 52px;
+        font-size: 22px;
+        margin-bottom: 12px;
+    }
+
+    .reports .report-card h3 {
+        font-size: 16px;
+    }
+}

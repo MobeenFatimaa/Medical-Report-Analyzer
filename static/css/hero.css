@@ -1,0 +1,198 @@
+/* ============================================================================
+   HERO VIDEO BACKGROUND CONFIGURATION (ULTRA-DIMMED VARIANT)
+============================================================================ */
+
+.hero {
+    position: relative;
+    padding: 170px 0 120px;
+    overflow: hidden;
+    z-index: 1;
+    background-color: #030305; /* Deep rich onyx anchor base */
+}
+
+/* Master Video Wrapper Layer */
+.video-bg-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+    overflow: hidden;
+    background-color: #030305; /* Ensures zero light leaks */
+}
+
+.video-bg-element {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    transform: translate(-50%, -50%);
+    object-fit: cover;
+    pointer-events: none;
+    display: block;
+    
+    /* FORCE TRANSPARENCY & TONAL MERGE DIRECTLY ON THE VIDEO STREAM */
+    opacity: 0.15;            /* Drops video visual strength down to only 15% */
+    mix-blend-mode: luminosity; /* Strips harsh neon colors, forcing a clean dark-grey tint */
+    filter: brightness(2) contrast(1.2); /* Crushes raw highlights so white text pops effortlessly */
+}
+
+/* Contrast Overlay Control Layer */
+.video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    /* Solid uniform near-black shield to bury any remaining background noise */
+    background: linear-gradient(
+        135deg,
+        rgba(3, 3, 5, 0.85) 0%,
+        rgba(10, 10, 12, 0.90) 100%
+    );
+}
+/* ============================================================================
+   HERO CONTAINER STRUCTURAL COMPONENTS
+============================================================================ */
+
+.hero-container {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    align-items: center;
+    gap: 80px;
+}
+
+.hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 20px;
+    background: rgba(218, 160, 109, .08);
+    border: 1px solid rgba(218, 160, 109, .2);
+    border-radius: 50px;
+    margin-bottom: 30px;
+}
+
+.hero-badge i {
+    color: #DAA06D;
+}
+
+.hero h1 {
+    font-size: 72px;
+    line-height: 1.1;
+    font-family: "Space Grotesk", sans-serif;
+    margin-bottom: 30px;
+    color: #ffffff;
+}
+
+.hero h1 span {
+    background: linear-gradient(90deg, #e89955, #FFF5EA, #DAA06D);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero p {
+    font-size: 20px;
+    opacity: .8;
+    line-height: 1.9;
+    margin-bottom: 40px;
+    color: #ffffff;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 45px;
+}
+
+.primary-btn {
+    padding: 18px 34px;
+    background: linear-gradient(90deg, #991B1B, #DAA06D);
+    color: #ffffff;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1), background 0.3s ease;
+    display: inline-block;
+}
+
+.primary-btn:hover {
+    background: linear-gradient(90deg, #B91C1C, #E7B88E);
+    transform: translateY(-4px);
+}
+
+.secondary-btn {
+    padding: 18px 34px;
+    border-radius: 50px;
+    border: 1px solid rgba(255, 255, 255, .15);
+    background: rgba(255, 255, 255, .06);
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: 600;
+    transition: background 0.3s ease, border-color 0.3s ease;
+    display: inline-block;
+}
+
+.secondary-btn:hover {
+    background: rgba(255, 255, 255, .12);
+    border-color: rgba(255, 255, 255, .3);
+}
+
+.hero-users {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+    margin-top: 45px;
+}
+
+.hero-users p {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    line-height: 1;
+    font-size: 18px;
+    color: #ffffff;
+}
+
+.hero-users p span {
+    color: #DAA06D;
+    font-weight: 700;
+    margin: 0 4px;
+}
+
+.avatars {
+    display: flex;
+}
+
+.avatars img {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    margin-left: -10px;
+    border: 3px solid #030712;
+}
+
+.avatars img:first-child {
+    margin-left: 0;
+}
+
+/* ============================================================================
+   RESPONSIVE DESIGN CONTROLS
+============================================================================ */
+
+@media (max-width: 1024px) {
+    .hero-container {
+        grid-template-columns: 1fr;
+        gap: 50px;
+    }
+    
+    .hero h1 {
+        font-size: 52px;
+    }
+}

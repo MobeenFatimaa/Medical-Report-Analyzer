@@ -1,0 +1,302 @@
+/* ============================================================================
+   WHY CHOOSE SECTION (IMPROVED UI)
+============================================================================ */
+
+.why {
+    padding: 160px 0;
+    position: relative;
+    width: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+    z-index: 1;
+}
+
+/* Whole Section Background Image System */
+.why::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../images/why-bg.jpg'); 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.16; /* Calibrated perfectly for dark layout contrast */
+    mix-blend-mode: luminosity; 
+    z-index: -2;
+    pointer-events: none;
+}
+
+/* Gradient Overlay Mask for Text Readability */
+.why::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, rgba(10, 10, 12, 0.3) 0%, rgba(10, 10, 12, 0.9) 100%);
+    z-index: -1;
+    pointer-events: none;
+}
+
+.why-container {
+    display: grid;
+    grid-template-columns: 450px 1fr;
+    align-items: center;
+    gap: 80px;
+    width: 100%;
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+/* Typography & Headers */
+.section-title.left {
+    text-align: left;
+}
+
+.section-title.left h2 {
+    font-size: 42px;
+    line-height: 1.2;
+    margin: 15px 0 20px;
+}
+
+.section-title.left p {
+    margin: 0 0 45px 0;
+    max-width: 680px;
+    font-size: 16px;
+    line-height: 1.7;
+    opacity: 0.85;
+}
+
+/* ============================================================================
+   LEFT ACCENT HERO GRAPHIC
+============================================================================ */
+
+.why-image {
+    position: relative;
+    height: 500px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.circle-bg {
+    width: 380px;
+    height: 380px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(218, 160, 109, 0.2) 0%, transparent 70%);
+    filter: blur(10px);
+    position: absolute;
+}
+
+.main-icon {
+    position: absolute;
+    width: 170px;
+    height: 170px;
+    border-radius: 44px;
+    background: linear-gradient(135deg, #991B1B, #DAA06D);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 68px;
+    color: white;
+    box-shadow: 0 30px 65px rgba(218, 160, 109, 0.3);
+    z-index: 2;
+}
+
+/* Floating Elements Styling */
+.floating {
+    position: absolute;
+    width: 76px;
+    height: 76px;
+    border-radius: 22px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 28px;
+    background: rgba(255, 255, 255, 0.04);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(218, 160, 109, 0.18);
+    color: #DAA06D;
+    z-index: 3;
+    box-sizing: border-box;
+}
+
+/* Organic Asynchronous Float Animations */
+.floating1 {
+    top: 40px;
+    left: 40px;
+    animation: float1 5s ease-in-out infinite;
+}
+
+.floating2 {
+    right: 20px;
+    top: 110px;
+    animation: float2 6s ease-in-out infinite;
+}
+
+.floating3 {
+    bottom: 50px;
+    left: 100px;
+    animation: float3 5.5s ease-in-out infinite;
+}
+
+@keyframes float1 {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-15px) rotate(5deg); }
+}
+
+@keyframes float2 {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-22px) rotate(-8deg); }
+}
+
+@keyframes float3 {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-18px) rotate(6deg); }
+}
+
+/* ============================================================================
+   DASHBOARD CARD GRID SYSTEM
+============================================================================ */
+
+.why-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    width: 100%;
+}
+
+.why-card {
+    display: flex;
+    gap: 20px;
+    padding: 26px;
+    border-radius: 24px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(218, 160, 109, 0.12);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    box-sizing: border-box;
+    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), 
+                border-color 0.4s ease, 
+                box-shadow 0.4s ease;
+}
+
+.why-card:hover {
+    transform: translateY(-6px);
+    border-color: #DAA06D;
+    box-shadow: 0 20px 45px rgba(218, 160, 109, 0.15);
+}
+
+.why-card i {
+    width: 56px;
+    height: 56px;
+    border-radius: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 22px;
+    color: white;
+    flex-shrink: 0;
+    transition: transform 0.4s ease;
+}
+
+.why-card:hover i {
+    transform: scale(1.08) rotate(-3deg);
+}
+
+/* ============================================================================
+   SUBTLE MICRO-TONAL GRADIENTS FOR EACH CARD ICON
+============================================================================ */
+
+/* Card 1: Ruby Flare */
+.why-grid .why-card:nth-child(1) i {
+    background: linear-gradient(135deg, #991B1B, #D67A53);
+}
+
+/* Card 2: Deep Crimson Crimson */
+.why-grid .why-card:nth-child(2) i {
+    background: linear-gradient(135deg, #881337, #DAA06D);
+}
+
+/* Card 3: Sunset Coral */
+.why-grid .why-card:nth-child(3) i {
+    background: linear-gradient(135deg, #A11D33, #E39665);
+}
+
+/* Card 4: Rosewood Slate */
+.why-grid .why-card:nth-child(4) i {
+    background: linear-gradient(135deg, #941C1C, #C48255);
+}
+
+/* Card 5: Terracotta Flare */
+.why-grid .why-card:nth-child(5) i {
+    background: linear-gradient(135deg, #991B1B, #EBB374);
+}
+
+/* Card 6: Burnished Amber */
+.why-grid .why-card:nth-child(6) i {
+    background: linear-gradient(135deg, #7F1D1D, #D98B50);
+}
+
+/* Card Internal Typography */
+.why-card h3 {
+    font-size: 20px;
+    font-weight: 700;
+    margin: 0 0 8px 0;
+}
+
+.why-card p {
+    margin: 0;
+    font-size: 14px;
+    opacity: 0.75;
+    line-height: 1.6;
+}
+
+/* ============================================================================
+   RESPONSIVE MEDIA LAYERS
+============================================================================ */
+
+@media (max-width: 1200px) {
+    .why-container {
+        grid-template-columns: 1fr;
+        gap: 60px;
+    }
+    
+    .why-image {
+        max-width: 450px;
+        margin: 0 auto;
+        height: 420px;
+    }
+
+    .section-title.left, 
+    .section-title.left p {
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+@media (max-width: 768px) {
+    .why {
+        padding: 100px 0;
+    }
+
+    .why-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .section-title.left h2 {
+        font-size: 32px;
+    }
+    
+    .why-card {
+        padding: 20px;
+    }
+}

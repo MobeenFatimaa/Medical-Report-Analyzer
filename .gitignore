@@ -1,0 +1,40 @@
+# ==========================================
+# Environment Variables & Secrets
+# ==========================================
+.env
+*.env
+.env.*
+
+# ==========================================
+# Python & Virtual Environments
+# ==========================================
+.venv/
+venv/
+ENV/
+env/
+build/
+dist/
+*.egg-info/
+
+# Python Bytecode & Cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# ==========================================
+# User Uploads & Temporary Data
+# ==========================================
+uploads/*
+!uploads/.gitkeep
+
+# ==========================================
+# IDE & System Files
+# ==========================================
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS System Files
+.DS_Store
+Thumbs.db

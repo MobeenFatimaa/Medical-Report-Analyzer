@@ -1,0 +1,477 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap');
+
+/* ==========================================
+   GLOBAL RESET & BASE STYLES
+========================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Manrope', sans-serif;
+    background-color: #030712;
+    color: #F9FAFB;
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+    padding-bottom: 60px;
+}
+
+/* Atmospheric Background */
+.background {
+    position: fixed;
+    inset: 0;
+    background: radial-gradient(circle at 50% 0%, #3b0909 0%, #1a0404 50%, #030712 100%);
+    z-index: -2;
+}
+
+.container {
+    width: 90%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding-top: 40px;
+}
+
+/* ==========================================
+   HEADER SECTION
+========================================== */
+.result-title {
+    text-align: center;
+    margin: 40px auto 30px;
+    padding: 0 20px;
+}
+
+.result-title h1 {
+    font-size: 42px;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    margin-bottom: 12px;
+    color: #FFFFFF;
+}
+
+.result-title h1 i {
+    color: #DAA06D;
+    margin-right: 12px;
+    filter: drop-shadow(0 0 10px rgba(218, 160, 109, 0.4));
+}
+
+.result-title p {
+    color: #9CA3AF;
+    font-size: 16px;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+/* ==========================================
+   GLASS CARDS & CONTAINERS
+========================================== */
+.glass-card {
+    margin-bottom: 28px;
+    padding: 32px;
+    border-radius: 24px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(218, 160, 109, 0.15);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.glass-card h2 {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: #FFFFFF;
+}
+
+.glass-card h2 i {
+    color: #DAA06D;
+}
+
+/* ==========================================
+   OVERALL RISK CARD
+========================================== */
+.risk-card {
+    margin-bottom: 28px;
+    padding: 24px 32px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.risk-card h3 {
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #9CA3AF;
+    margin-bottom: 12px;
+}
+
+.risk {
+    padding: 16px 24px;
+    border-radius: 14px;
+    font-size: 20px;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+}
+
+.risk.low { background: rgba(6, 78, 59, 0.4); color: #34D399; border: 1px solid rgba(52, 211, 153, 0.3); }
+.risk.medium { background: rgba(120, 53, 15, 0.4); color: #FACC15; border: 1px solid rgba(250, 204, 21, 0.3); }
+.risk.high { background: rgba(127, 29, 29, 0.4); color: #F87171; border: 1px solid rgba(248, 113, 113, 0.3); }
+
+/* ==========================================
+   DASHBOARD HEADER & STATS
+========================================== */
+.dashboard-header {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 24px;
+    margin-bottom: 28px;
+}
+
+.score-card {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.score-card h3 {
+    margin-top: 20px;
+    font-size: 20px;
+    color: #E5E7EB;
+}
+
+.score-circle {
+    --score: 0;
+    width: 170px;
+    height: 170px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: conic-gradient(#DAA06D calc(var(--score) * 1%), rgba(255, 255, 255, 0.06) 0);
+    position: relative;
+    box-shadow: 0 0 25px rgba(218, 160, 109, 0.15);
+}
+
+.score-circle::before {
+    content: "";
+    position: absolute;
+    width: 135px;
+    height: 135px;
+    border-radius: 50%;
+    background: #0D1322;
+}
+
+.score-circle span {
+    position: relative;
+    z-index: 2;
+    font-size: 38px;
+    font-weight: 800;
+    color: #FFFFFF;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+}
+
+.stat-card {
+    padding: 20px 24px;
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    transition: all 0.3s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(218, 160, 109, 0.4);
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.stat-card i {
+    font-size: 24px;
+    color: #DAA06D;
+    margin-bottom: 12px;
+}
+
+.stat-card h4 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #9CA3AF;
+    margin-bottom: 6px;
+}
+
+.stat-card span {
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.good { color: #34D399; }
+.warning { color: #FACC15; }
+.danger { color: #F87171; }
+
+/* ==========================================
+   REPORT OVERVIEW GRID
+========================================== */
+.overview-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+}
+
+.overview-item {
+    padding: 20px;
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.overview-item span {
+    display: block;
+    color: #9CA3AF;
+    font-size: 13px;
+    margin-bottom: 6px;
+}
+
+.overview-item strong {
+    font-size: 16px;
+    color: #F3F4F6;
+}
+
+/* ==========================================
+   SUMMARY & FINDINGS
+========================================== */
+.summary-text {
+    line-height: 1.8;
+    color: #D1D5DB;
+    font-size: 16px;
+}
+
+.finding-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    margin-top: 14px;
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.025);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.finding-card::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 4px;
+    height: 100%;
+    background: #EF4444;
+}
+
+.finding-card:hover {
+    transform: translateY(-3px);
+    border-color: rgba(218, 160, 109, 0.3);
+    background: rgba(255, 255, 255, 0.04);
+}
+
+.finding-left {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    flex: 1;
+}
+
+.finding-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 14px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, rgba(153, 27, 27, 0.6), rgba(218, 160, 109, 0.4));
+    font-size: 20px;
+    color: #FFFFFF;
+    flex-shrink: 0;
+}
+
+.finding-content h3 {
+    font-size: 18px;
+    color: #F9FAFB;
+    margin-bottom: 4px;
+}
+
+.finding-content p {
+    color: #9CA3AF;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.severity {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 8px;
+    margin-left: 20px;
+}
+
+.severity-bar {
+    width: 80px;
+    height: 6px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.08);
+    overflow: hidden;
+}
+
+.severity-fill {
+    height: 100%;
+    width: 85%;
+    background: linear-gradient(90deg, #F59E0B, #EF4444);
+}
+
+.status {
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+.status.danger {
+    background: rgba(239, 68, 68, 0.15);
+    color: #F87171;
+    border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+/* ==========================================
+   CHART & RECOMMENDATIONS
+========================================== */
+.chart-box {
+    max-width: 300px;
+    margin: 20px auto 0;
+}
+
+ul.recommendations-list {
+    list-style: none;
+}
+
+ul.recommendations-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 14px;
+    line-height: 1.6;
+    color: #E5E7EB;
+    font-size: 15px;
+}
+
+ul.recommendations-list li i {
+    color: #34D399;
+    font-size: 18px;
+    margin-top: 2px;
+}
+
+/* ==========================================
+   BUTTONS & ACTIONS
+========================================== */
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 40px;
+}
+
+.btn {
+    padding: 16px 32px;
+    border-radius: 14px;
+    text-decoration: none;
+    background: linear-gradient(135deg, #991B1B, #DAA06D);
+    color: #FFFFFF;
+    font-weight: 700;
+    font-size: 15px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(218, 160, 109, 0.3);
+}
+
+/* Responsive adjustments */
+@media(max-width: 900px) {
+    .dashboard-header { grid-template-columns: 1fr; }
+    .overview-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media(max-width: 600px) {
+    .overview-grid { grid-template-columns: 1fr; }
+    .stats-grid { grid-template-columns: 1fr; }
+    .finding-card { flex-direction: column; align-items: flex-start; gap: 16px; }
+    .severity { align-items: flex-start; margin-left: 0; }
+}
+/* ==========================================
+   PRINT / PDF STYLES
+========================================== */
+@media print {
+    body {
+        background: #030712 !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+    .buttons {
+        display: none !important;
+    }
+    .glass-card, .risk-card, .stat-card {
+        page-break-inside: avoid;
+    }
+}
+/* ==========================================
+   PDF EXPORT SPECIFIC STYLES
+========================================== */
+body.exporting-pdf {
+    background-color: #030712 !important;
+    color: #FFFFFF !important;
+}
+
+body.exporting-pdf .glass-card,
+body.exporting-pdf .stat-card,
+body.exporting-pdf .risk-card,
+body.exporting-pdf .overview-item,
+body.exporting-pdf .finding-card {
+    background-color: #0d1322 !important; /* Solid dark background for canvas capture */
+    border: 1px solid rgba(218, 160, 109, 0.3) !important;
+}
+
+body.exporting-pdf h1,
+body.exporting-pdf h2,
+body.exporting-pdf h3,
+body.exporting-pdf h4,
+body.exporting-pdf span,
+body.exporting-pdf strong,
+body.exporting-pdf p {
+    color: #FFFFFF !important; /* Ensures text stays visible on dark panels */
+}
+
+body.exporting-pdf .score-circle::before {
+    background: #030712 !important;
+}
